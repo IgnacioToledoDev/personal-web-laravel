@@ -31,7 +31,8 @@ class ProjectForm
                     ->required()
                     ->columnSpanFull(),
                 TextInput::make('url')
-                    ->required(),
+                    ->required()
+                    ->url(),
                 TextInput::make('sort_order')
                     ->required()
                     ->numeric()

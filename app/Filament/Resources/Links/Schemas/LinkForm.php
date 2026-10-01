@@ -16,7 +16,9 @@ class LinkForm
                 TextInput::make('display')
                     ->required(),
                 TextInput::make('href')
-                    ->required(),
+                    ->required()
+                    ->rules(['regex:/^(https?:\/\/|mailto:).+/i'])
+                    ->validationMessages(['regex' => 'Debe ser una URL http(s) o un mailto:.']),
                 TextInput::make('sort_order')
                     ->required()
                     ->numeric()
