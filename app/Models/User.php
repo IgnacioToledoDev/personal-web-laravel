@@ -34,8 +34,10 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return in_array($this->email, [
-            'itoledo@ninjaexcel.com',
-        ], true);
+        // Identity-based, not email-based: the panel has no public registration,
+        // so the only accounts that ever exist are the ones created by us via
+        // `make:filament-user`. Gating on id keeps access working if the admin
+        // changes their own email through the profile page.
+        return $this->id === 1;
     }
 }
