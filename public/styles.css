@@ -291,6 +291,7 @@ body.no-liga {
   line-height: 1.05;
   color: var(--accent);
   white-space: pre;
+  text-align: center;
   margin: 0;
   filter: drop-shadow(0 0 calc(10px * var(--glow-strength)) color-mix(in oklab, var(--accent), transparent 35%));
 }
