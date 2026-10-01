@@ -1,4 +1,4 @@
-# personal-web (Laravel)
+# personal-web
 
 Sitio personal estilo "terminal" interactiva, migrado desde una versión estática (React/Babel vía CDN servida con Express) a Laravel. El frontend visual se mantiene igual (misma experiencia de terminal en el navegador); lo que cambia es que el contenido ahora vive en base de datos y se edita desde un backoffice Filament en `/admin`, en vez de estar hardcodeado en el JS.
 
