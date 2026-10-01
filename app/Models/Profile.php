@@ -16,6 +16,8 @@ class Profile extends Model
         'neofetch_rows',
         'about_lead',
         'about_meta',
+        'seo_title',
+        'seo_description',
     ];
 
     protected $casts = [

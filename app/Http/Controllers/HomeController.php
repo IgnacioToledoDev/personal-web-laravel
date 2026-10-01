@@ -7,6 +7,7 @@ use App\Models\Link;
 use App\Models\Profile;
 use App\Models\Project;
 use App\Models\SkillGroup;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -60,6 +61,34 @@ class HomeController extends Controller
             ])->all(),
         ];
 
-        return view('home', ['site' => $site]);
+        $role = collect($profile->about_meta)->firstWhere('key', 'Role')['value'] ?? null;
+
+        $seoTitle = $profile->seo_title
+            ?? sprintf('%s@%s — %s', $profile->user, $profile->host, $role ?? 'Backend Developer');
+
+        $seoDescription = $profile->seo_description
+            ?? Str::limit(strip_tags(str_replace(['**', '<hl>', '</hl>'], '', $profile->about_lead)), 155);
+
+        $sameAs = collect($site['links'])
+            ->pluck(2)
+            ->filter(fn ($href) => is_string($href) && Str::startsWith($href, ['http://', 'https://']))
+            ->values()
+            ->all();
+
+        $jsonLd = [
+            '@context' => 'https://schema.org',
+            '@type' => 'Person',
+            'name' => $profile->neofetch_title_name ?: $profile->user,
+            'jobTitle' => $role ?? 'Backend Developer',
+            'url' => url('/'),
+            'sameAs' => $sameAs,
+        ];
+
+        return view('home', [
+            'site' => $site,
+            'seoTitle' => $seoTitle,
+            'seoDescription' => $seoDescription,
+            'jsonLd' => $jsonLd,
+        ]);
     }
 }

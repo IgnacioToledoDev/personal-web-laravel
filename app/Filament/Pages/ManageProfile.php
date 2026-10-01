@@ -13,6 +13,7 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\Actions;
 use Filament\Schemas\Components\Form;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use UnitEnum;
@@ -91,6 +92,20 @@ class ManageProfile extends Page
                                 ->label('Accent'),
                         ])
                         ->columns(3)
+                        ->columnSpanFull(),
+                    Section::make('SEO')
+                        ->schema([
+                            TextInput::make('seo_title')
+                                ->label('SEO title')
+                                ->maxLength(60)
+                                ->columnSpanFull(),
+                            Textarea::make('seo_description')
+                                ->label('SEO description')
+                                ->helperText('Max 160 characters.')
+                                ->maxLength(160)
+                                ->rows(3)
+                                ->columnSpanFull(),
+                        ])
                         ->columnSpanFull(),
                 ])
                     ->livewireSubmitHandler('save')

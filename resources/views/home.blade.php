@@ -3,11 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>noctidev@arch — terminal</title>
+  <title>{{ $seoTitle }}</title>
+  <meta name="description" content="{{ $seoDescription }}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ url('/') }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ $seoTitle }}">
+  <meta property="og:description" content="{{ $seoDescription }}">
+  <meta property="og:url" content="{{ url('/') }}">
+  <meta property="og:locale" content="es_ES">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ $seoTitle }}">
+  <meta name="twitter:description" content="{{ $seoDescription }}">
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{{ asset('styles.css') }}" />
+
+  <script type="application/ld+json">{!! json_encode($jsonLd, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>
 </head>
 <body class="crt-scan crt-glow crt-flicker">
   <div id="root"></div>

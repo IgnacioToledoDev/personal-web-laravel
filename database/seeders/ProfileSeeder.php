@@ -43,6 +43,8 @@ class ProfileSeeder extends Seeder
                     ['key' => 'Based in', 'value' => 'Remote / CET', 'isAccent' => false],
                     ['key' => 'Status', 'value' => 'Open to projects', 'isAccent' => true],
                 ],
+                'seo_title' => 'noctidev — Backend Developer (Rust · PHP · Linux)',
+                'seo_description' => 'Backend developer especializado en Rust y PHP. Servicios rápidos, fiables y bien tipados sobre Linux. Proyectos, experiencia y stack técnico.',
             ]
         );
     }
