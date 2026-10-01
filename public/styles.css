@@ -472,12 +472,13 @@ body.no-liga {
 .commit .when { color: var(--fg-dim); font-size: 12px; margin-bottom: 8px; }
 .commit .what { color: var(--fg); font-size: 13.5px; line-height: 1.6; }
 .commit .what li { margin-left: 16px; margin-top: 3px; }
-.commit .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-.commit .stack .t {
+.stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.stack .t {
   font-size: 11px; color: var(--fg-dim);
   border: 1px solid var(--border);
   border-radius: 4px; padding: 1px 7px;
 }
+.skgroup .stack { margin-top: 8px; }
 
 /* generic plain text lines */
 .txt { font-size: 13.5px; }
