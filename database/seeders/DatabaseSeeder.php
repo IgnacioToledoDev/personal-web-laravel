@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ExperienceSeeder::class,
             SkillGroupSeeder::class,
             LinkSeeder::class,
+            TechCategorySeeder::class,
         ]);
     }
 }

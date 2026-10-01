@@ -151,6 +151,28 @@ function Skills() {
   );
 }
 
+/* ---- Tech Stack ---- */
+function TechStack() {
+  const groups = window.SITE.stack;
+  return (
+    <div className="out">
+      <div className="out-head">
+        <span><span className="dim">cat </span><span className="file">stack.toml</span></span>
+      </div>
+      <div className="skills">
+        {groups.map((g, i) => (
+          <div className="skgroup" key={i}>
+            <div className="skgroup-h">{g.category}</div>
+            <div className="stack">
+              {g.items.map((t, j) => <span className="t" key={j}>{t}</span>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ---- Experience ---- */
 function Experience() {
   const xs = window.SITE.experience;
@@ -201,6 +223,7 @@ const COMMANDS = [
   ["about",      "quién soy"],
   ["projects",   "repos destacados"],
   ["skills",     "stack & nivel"],
+  ["tech",       "stack tecnológico real"],
   ["experience", "trayectoria (git log)"],
   ["social",     "dónde encontrarme"],
   ["neofetch",   "re-imprime la cabecera"],
@@ -223,5 +246,5 @@ function Help() {
 }
 
 Object.assign(window, {
-  Neofetch, About, Projects, Skills, Experience, Social, Help, COMMANDS,
+  Neofetch, About, Projects, Skills, TechStack, Experience, Social, Help, COMMANDS,
 });

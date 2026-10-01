@@ -41,6 +41,7 @@ function Output({ cmd, theme }) {
     case "ls":                 return <Projects />;
     case "skills":
     case "stack":              return <Skills />;
+    case "tech":               return <TechStack />;
     case "experience":
     case "cv":                 return <Experience />;
     case "social":
@@ -114,7 +115,7 @@ function Intro({ onRun }) {
       </div>
       <div className="helpline">
         <span className="label">try:</span>
-        {["about", "projects", "skills", "experience"].map((c) => (
+        {["about", "projects", "skills", "tech", "experience"].map((c) => (
           <Chip key={c} name={c} onRun={onRun} />
         ))}
         <Chip name="help" onRun={onRun} />

@@ -7,6 +7,7 @@ use App\Models\Link;
 use App\Models\Profile;
 use App\Models\Project;
 use App\Models\SkillGroup;
+use App\Models\TechCategory;
 use Illuminate\Support\Str;
 
 class HomeController extends Controller
@@ -33,6 +34,10 @@ class HomeController extends Controller
                     ->map(fn ($row) => [$row['key'], $row['value'], (bool) $row['isAccent']])
                     ->all(),
             ],
+            'stack' => TechCategory::query()->orderBy('sort_order')->get()->map(fn (TechCategory $c) => [
+                'category' => $c->category,
+                'items' => $c->items,
+            ])->all(),
             'projects' => Project::query()->orderBy('sort_order')->get()->map(fn (Project $p) => [
                 'name' => $p->name,
                 'lang' => $p->lang,
